@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nuevo Producto{% endblock %}
+
+{% block body %}
+    <h1>Crear Nuevo Producto</h1>
+    <form method="post">
+        {{ form(form) }}
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock %}  

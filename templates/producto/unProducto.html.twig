@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductoController!{% endblock %}
+
+{% block body %}
+    <h1>Producto</h1>
+    
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Tamaño</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td>{{ producto.tamanio }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
