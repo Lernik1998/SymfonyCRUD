@@ -4,8 +4,11 @@
 
 {% block body %}
     <h1>Crear Nuevo Producto</h1>
-    <form method="post">
-        {{ form(form) }}
-        <button type="submit">Guardar</button>
-    </form>
+
+    <a href="{{ path('producto_index') }}">Volver a la lista de productos</a>
+   
+   {# Quito validación por defecto #}
+
+       {{ include('producto/formulario.html.twig') }}
+   
 {% endblock %}  

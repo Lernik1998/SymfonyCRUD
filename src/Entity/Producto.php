@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ProductoRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Restriccion;
 
 #[ORM\Entity(repositoryClass: ProductoRepository::class)]
 class Producto
@@ -15,12 +16,16 @@ class Producto
     private ?int $id = null;
 
     #[ORM\Column(length: 120)]
+    #[Restriccion\NotBlank]
     private ?string $nombre = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $descripcion = null;
 
     #[ORM\Column]
+    #[Restriccion\NotBlank]
+    #[Restriccion\Type('integer')]
+    #[Restriccion\Positive]
     private ?int $tamanio = null;
 
     public function getId(): ?int

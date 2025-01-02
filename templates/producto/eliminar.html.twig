@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Eliminar producto{% endblock %}
+
+{% block body %}
+    <h1>Eliminar producto</h1>
+
+    <p>¿Estas seguro de querer eliminar el producto?</p>
+
+    <form method="POST">
+        <button type="submit">Eliminar</button>
+
+        <a href="{{ path('producto_unProducto', {'id': id} )}}">No</a>
+
+    </form>
+   
+{% endblock %}

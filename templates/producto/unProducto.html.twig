@@ -22,4 +22,9 @@
             </tr>
         </tbody>
     </table>
+
+    <a href="{{ path('producto_editar', {'id': producto.id}) }}">Editar</a>
+    <a href="{{ path('producto_eliminar', {'id': producto.id}) }}">Eliminar</a>
+<br>
+    <a href="{{ path('producto_index') }}">Volver a la lista</a>
 {% endblock %}

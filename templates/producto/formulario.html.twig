@@ -1,0 +1,11 @@
+ {{ form_start(formulario, {'attr': {'novalidate': 'novalidate'}}) }}
+
+            {{ form_row(formulario.nombre) }}
+            
+            {{ form_row(formulario.descripcion, {'label': 'Descripción' }) }}
+
+            {{ form_row(formulario.tamanio, {'label': 'Tamaño (Cantidad)' }) }}
+            
+            {{ form_row(formulario.guardar, {'label': 'Guardar' }) }}
+
+        {{ form_end(formulario) }}

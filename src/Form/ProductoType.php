@@ -6,6 +6,7 @@ use App\Entity\Producto;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType; // Obtengo componente boton submit
 
 class ProductoType extends AbstractType
 {
@@ -15,6 +16,9 @@ class ProductoType extends AbstractType
             ->add('nombre')
             ->add('descripcion')
             ->add('tamanio')
+            ->add('guardar', SubmitType::class, [
+                'label' => 'Añadir nuevo producto'
+            ])
         ;
     }
 
