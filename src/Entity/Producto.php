@@ -40,6 +40,11 @@ class Producto
 
     public function setNombre(string $nombre): static
     {
+
+        if (empty($nombre)) {
+            throw new \InvalidArgumentException('El nombre no puede estar vacío.');
+        }
+
         $this->nombre = $nombre;
 
         return $this;
