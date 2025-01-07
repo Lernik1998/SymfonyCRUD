@@ -9,6 +9,10 @@ use Doctrine\Persistence\ManagerRegistry;
 /**
  * @extends ServiceEntityRepository<Producto>
  */
+
+ /* 
+ Nos facilitarán la obtención de datos de la BD desde el controlador (Están conectadas Entity y Repository)
+ */
 class ProductoRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
