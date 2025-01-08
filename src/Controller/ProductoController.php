@@ -5,13 +5,12 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use App\Repository\ProductoRepository; // Importo el repositorio de producto
-use App\Entity\Producto;
-use App\Form\ProductoType;
-// Importo la clase de petición
-use Symfony\Component\HttpFoundation\Request;
 
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\ProductoRepository; // Importo el repositorio de producto
+use App\Entity\Producto; // Importo el Modelo de Producto
+use App\Form\ProductoType; // Importo el formulario
+use Symfony\Component\HttpFoundation\Request;// Importo la clase de petición
+use Doctrine\ORM\EntityManagerInterface; // Clase para acceder a BD
 
 class ProductoController extends AbstractController
 {
@@ -19,14 +18,12 @@ class ProductoController extends AbstractController
     #[Route('/producto', name: 'producto_index')]
     public function index(ProductoRepository $productoRepository): Response
     {
-
         $todosProductos = $productoRepository->findAll();
 
         return $this->render('producto/index.html.twig', [
             'productos' => $todosProductos
         ]);
     }
-
 
     // Obtenemos un producto
     #[Route('producto/{id<\d+>}', name: 'producto_unProducto')]
