@@ -1,7 +1,10 @@
 <?php
-
 namespace App\Controller;
 
+/*
+Para cargar desde el controlador el contenido de la plantilla primero hay
+extender de una clase base.
+*/
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -14,7 +17,7 @@ use Doctrine\ORM\EntityManagerInterface; // Clase para acceder a BD
 
 class ProductoController extends AbstractController
 {
-    // Obtenemos todos los productos
+    // Obtenemos todos los productos (READ VIEW)
     #[Route('/producto', name: 'producto_index')]
     public function index(ProductoRepository $productoRepository): Response
     {
@@ -25,7 +28,7 @@ class ProductoController extends AbstractController
         ]);
     }
 
-    // Obtenemos un producto
+    // Obtenemos un producto (READ SINGLE VIEW)
     #[Route('producto/{id<\d+>}', name: 'producto_unProducto')]
     public function unProducto(Producto $producto): Response
     {
@@ -39,7 +42,7 @@ class ProductoController extends AbstractController
         ]);
     }
 
-    // Añadimos un producto
+    // Añadimos un producto (CREATE VIW)
     #[Route('/producto/nuevo', name: 'producto_nuevo')]
     public function nuevoProducto(Request $request, EntityManagerInterface $emanager): Response
     {
@@ -53,7 +56,6 @@ class ProductoController extends AbstractController
         $formulario->handleRequest($request); // Recogemos la petición
 
         if ($formulario->isSubmitted() && $formulario->isValid()) { // Verificamos si el formulario ha sido enviado y es valido
-
 
             // Marca el objeto a guardar
             $emanager->persist($producto);
